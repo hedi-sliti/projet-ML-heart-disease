@@ -1,6 +1,6 @@
 # Plan de Présentation - Projet Machine Learning : Prédiction du Risque de Maladie Cardiaque
 
-## Durée estimée : 10-15 minutes
+## Durée estimée : 7-10 minutes
 
 ---
 
@@ -135,12 +135,16 @@ Présentation des 7 étapes suivies :
 
 | Modèle | Accuracy | Precision | Recall | F1-score |
 |--------|----------|-----------|--------|----------|
-| [À compléter après exécution] | - | - | - | - |
+| Logistic Regression | 0.8033 | 0.8000 | 0.8485 | 0.8235 |
+| Random Forest | 0.7541 | 0.7647 | 0.7879 | 0.7761 |
+| KNN | 0.7869 | 0.7778 | 0.8485 | 0.8116 |
+| SVM | 0.7705 | 0.7714 | 0.8182 | 0.7941 |
 
 ### 6.4. Meilleur modèle
-- **Sélection** : Basée sur le F1-score le plus élevé
+- **Modèle sélectionné** : Logistic Regression
+- **Critère de sélection** : Meilleur F1-score (0.8235)
 - **Justification** : Meilleur équilibre precision/recall pour le contexte médical
-- **Matrice de confusion** : Analyse des TP, TN, FP, FN
+- **Matrice de confusion** : 28 vrais positifs sur 33 patients à risque, 5 faux négatifs
 
 ---
 

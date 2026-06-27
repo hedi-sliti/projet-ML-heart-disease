@@ -98,6 +98,11 @@ git clone <url-du-repository>
 cd projet-ML
 ```
 
+Ou accéder directement au projet :
+```powershell
+cd C:\Users\moham\Desktop\projet-ML
+```
+
 ### Étape 2 : Créer un environnement virtuel (recommandé)
 ```bash
 python -m venv venv
@@ -108,12 +113,12 @@ source venv/bin/activate
 ```
 
 ### Étape 3 : Installer les dépendances
-```bash
+```powershell
 pip install -r requirements.txt
 ```
 
 Ou installer les packages manuellement :
-```bash
+```powershell
 pip install pandas numpy matplotlib seaborn scikit-learn flask joblib
 ```
 
@@ -142,19 +147,20 @@ jupyter notebook
 ### Option 2 : Via le script d'entraînement
 
 1. Exécuter le script :
-```bash
+```powershell
 python train_model.py
 ```
 
-2. Le script entraînera les modèles et sauvegardera le meilleur modèle
+2. Le script entraînera les 4 modèles, les comparera et sauvegardera le meilleur modèle
 
 ### Option 3 : Lancer l'application Flask
 
 1. Assurez-vous que les fichiers `model.pkl` et `scaler.pkl` existent dans `app/`
 
 2. Lancer l'application :
-```bash
-python app/app.py
+```powershell
+cd app
+python app.py
 ```
 
 3. Ouvrir un navigateur et aller à : `http://127.0.0.1:5000`
@@ -167,14 +173,20 @@ python app/app.py
 
 | Modèle | Accuracy | Precision | Recall | F1-score |
 |--------|----------|-----------|--------|----------|
-| Logistic Regression | - | - | - | - |
-| Random Forest | - | - | - | - |
-| KNN | - | - | - | - |
-| SVM | - | - | - | - |
-
-*(Les valeurs exactes seront affichées après l'exécution du notebook)*
+| Logistic Regression | 0.8033 | 0.8000 | 0.8485 | 0.8235 |
+| Random Forest | 0.7541 | 0.7647 | 0.7879 | 0.7761 |
+| KNN | 0.7869 | 0.7778 | 0.8485 | 0.8116 |
+| SVM | 0.7705 | 0.7714 | 0.8182 | 0.7941 |
 
 ### Meilleur modèle
+
+**Modèle sélectionné :** Logistic Regression
+
+**Performance :**
+- Accuracy : 0.8033
+- Precision : 0.8000
+- Recall : 0.8485
+- F1-score : 0.8235
 
 Le modèle sélectionné est celui avec le meilleur **F1-score**, car cette métrique offre un équilibre optimal entre precision et recall, ce qui est crucial dans un contexte médical pour minimiser à la fois les faux positifs et les faux négatifs.
 
@@ -220,6 +232,44 @@ models = {
 ## 🎓 Contexte académique
 
 Ce projet a été réalisé dans le cadre du module **Machine Learning Appliqué**. Il illustre l'application complète du processus de Data Science, de l'analyse exploratoire des données au déploiement d'un modèle en production.
+
+## 📝 Exemple de test
+
+Voici un exemple de valeurs à tester dans le formulaire :
+
+| Variable | Valeur |
+|----------|-------|
+| age | 52 |
+| sex | 1 |
+| cp | 0 |
+| trestbps | 125 |
+| chol | 212 |
+| fbs | 0 |
+| restecg | 1 |
+| thalach | 168 |
+| exang | 0 |
+| oldpeak | 1.0 |
+| slope | 2 |
+| ca | 2 |
+| thal | 3 |
+
+## ⚠️ Limites du projet
+
+- **Taille du dataset** : Après suppression des doublons, seulement 302 patients, ce qui est relativement petit
+- **Hyperparamètres** : Non optimisés, utilisation des valeurs par défaut
+- **Validation** : Pas de validation croisée, seulement un simple split train/test
+- **Feature engineering** : Aucune création de nouvelles features
+- **Interprétabilité** : Pas d'analyse de l'importance des features (feature importance, SHAP values)
+
+## 🚀 Améliorations possibles
+
+- **Optimisation des hyperparamètres** : GridSearchCV ou RandomizedSearchCV
+- **Validation croisée** : k-fold cross-validation pour une évaluation plus robuste
+- **Feature engineering** : Création de nouvelles features (ex: BMI, catégories d'âge)
+- **Autres modèles** : XGBoost, LightGBM, réseaux de neurones
+- **Interprétabilité** : SHAP values ou LIME pour expliquer les prédictions
+- **Plus de données** : Augmenter la taille du dataset si possible
+- **Déploiement cloud** : Déployer l'application sur un service cloud (AWS, Heroku, etc.)
 
 ## 🤝 Contribution
 

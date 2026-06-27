@@ -132,6 +132,13 @@ jupyter notebook
 
 4. À la fin, les fichiers `model.pkl` et `scaler.pkl` seront générés dans le dossier `app/`
 
+**Note :** La partie Evaluation du notebook contient :
+- Le tableau comparatif des performances des modèles
+- Les métriques détaillées (accuracy, precision, recall, F1-score)
+- Une visualisation comparative des performances
+- La matrice de confusion du meilleur modèle
+- La conclusion du choix du modèle basée sur le F1-score
+
 ### Option 2 : Via le script d'entraînement
 
 1. Exécuter le script :
